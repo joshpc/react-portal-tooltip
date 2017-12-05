@@ -5,6 +5,7 @@ import App from './app'
 import Home from './home'
 import Groups from './groups'
 import Style from './style'
+import c from "./c"
 
 ReactDOM.render((
   <Router history={ hashHistory }>
