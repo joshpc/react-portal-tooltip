@@ -47,15 +47,9 @@ class Card extends React.Component {
     }
 
     const style = {
-      position: 'absolute',
-      padding: '5px',
-      background: '#fff',
-      boxShadow: '0 0 8px rgba(0,0,0,.3)',
-      borderRadius: '3px',
       transition: `${this.state.transition} .3s ease-in-out, visibility .3s ease-in-out`,
       opacity: this.state.hover || this.props.active ? 1 : 0,
       visibility: this.state.hover || this.props.active ? 'visible' : 'hidden',
-      zIndex: 50,
       ...this.getStyle(this.props.position, this.props.arrow),
     }
 
@@ -283,10 +277,10 @@ class Card extends React.Component {
     })
   }
   render() {
-    let {arrowStyle} = this.checkWindowPosition(this.getGlobalStyle(), this.getArrowStyle())
+    let {style, arrowStyle} = this.checkWindowPosition(this.getGlobalStyle(), this.getArrowStyle())
 
     return (
-      <div className={this.props.className} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
+      <div className={this.props.className} style={style} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
         {this.props.arrow ? (
           <div>
             <span style={arrowStyle.fgStyle}/>
